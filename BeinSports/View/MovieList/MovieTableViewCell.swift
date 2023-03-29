@@ -98,6 +98,9 @@ extension MovieTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.playVideo(url: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")
+    }
     
 }
 
@@ -114,8 +117,9 @@ extension MovieTableViewCell : MovieBannerCollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func movieBannerCollectionView(_ movieBannerCollectionView: MovieBannerCollectionView, didSelectItemAt index: Int) {
         delegate?.playVideo(url: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")
     }
+    
     
 }
