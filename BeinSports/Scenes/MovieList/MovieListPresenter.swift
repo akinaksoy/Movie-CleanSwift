@@ -8,23 +8,20 @@
 import Foundation
 
 protocol MovieListPresentationLogic {
-    func presentMovieTable(genreList : Genres)
-    func presentMovies(movie : MovieModel)
+    func presentMovieTable(genreList: Genres)
+    func presentMovies(movie: MovieModel)
 }
 
-final class MovieListPresenter : MovieListPresentationLogic {
-    
+final class MovieListPresenter: MovieListPresentationLogic {
+
     func presentMovies(movie: MovieModel) {
         viewController?.displayMovies(movie: movie)
     }
-    
-    func presentMovieTable(genreList : Genres) {
+
+    func presentMovieTable(genreList: Genres) {
         viewController?.displayMovieTable(genre: genreList)
     }
-    
-    
-    
-    var viewController : MovieListDisplayLogic?
-    
-    
+
+    var viewController: MovieListDisplayLogic?
+
 }

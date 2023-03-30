@@ -8,10 +8,10 @@
 import Foundation
 
 protocol MovieListRoutingLogic {
-    
+
 }
 
-final class MovieListRouter : MovieListRoutingLogic {
-    
-    var viewController : MovieListViewController?
+final class MovieListRouter: MovieListRoutingLogic {
+
+    var viewController: MovieListViewController?
 }

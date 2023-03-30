@@ -8,8 +8,7 @@
 import Foundation
 
 struct Constants {
-    
-    
+
     enum fontTypes {
         case italic
         case bold

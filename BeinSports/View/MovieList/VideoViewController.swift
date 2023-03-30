@@ -9,14 +9,13 @@ import UIKit
 import AVKit
 class VideoViewController: AVPlayerViewController {
 
-    
-    var playerLayer : AVPlayerLayer?
-    
+    var playerLayer: AVPlayerLayer?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    func configure(mediaURL : String){
+
+    func configure(mediaURL: String) {
         guard let mediaUrl = URL(string: mediaURL) else {return}
         player = AVPlayer(url: mediaUrl)
         self.playerLayer = AVPlayerLayer(player: player)
@@ -25,10 +24,10 @@ class VideoViewController: AVPlayerViewController {
         }
 
         self.view.layer.addSublayer(playerLayer)
-        
+
         playerLayer.frame = view.bounds
         guard let player = player else {return}
         player.play()
-        
+
     }
 }

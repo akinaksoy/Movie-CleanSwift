@@ -7,23 +7,22 @@
 
 import UIKit
 
-
 @objc public protocol MovieBannerCollectionViewDataSource {
     var numberOfItems: Int { get }
-    
+
     func movieBannerCollectionView(_ movieBannerCollectionView: MovieBannerCollectionView,
-                                cellForItemAt index: Int,
-                                helperIndexPath: IndexPath) -> UICollectionViewCell
-    
+                                   cellForItemAt index: Int,
+                                   helperIndexPath: IndexPath) -> UICollectionViewCell
+
     @objc optional func movieBannerCollectionView(_ movieBannerCollectionView: MovieBannerCollectionView,
-                                               didSelectItemAt index: Int)
+                                                  didSelectItemAt index: Int)
     @objc optional func movieBannerCollectionView(_ movieBannerCollectionView: MovieBannerCollectionView,
-                                               didDisplayItemAt index: Int)
+                                                  didDisplayItemAt index: Int)
 }
 
 public class MovieBannerCollectionView: UICollectionView {
     public weak var movieBannerDataSource: MovieBannerCollectionViewDataSource?
-    
+
     public let flowLayout: UICollectionViewFlowLayout
     public var autoScrollTimer: TimeInterval = 5.0
 
@@ -36,7 +35,7 @@ public class MovieBannerCollectionView: UICollectionView {
             }
         }
     }
-    
+
     public var currentPageIndex: Int {
         get {
             let centerPage = CGPoint(x: contentOffset.x + (frame.width / 2), y: (frame.height / 2))
@@ -70,7 +69,7 @@ public class MovieBannerCollectionView: UICollectionView {
 
     private var helperCountOfItems: Int {
         if let realNumberOfItems = movieBannerDataSource?.numberOfItems,
-            realNumberOfItems > 0 {
+           realNumberOfItems > 0 {
             return realNumberOfItems + 2
         } else {
             return 0
@@ -131,9 +130,9 @@ public class MovieBannerCollectionView: UICollectionView {
 
     private func bannerItems(_ scrollView: UIScrollView) {
         let page = helperCurrentPageIndex
-        if (page == 0) {
+        if page == 0 {
             setHelperPage(helperCountOfItems - 2)
-        } else if (page == helperCountOfItems) {
+        } else if page == helperCountOfItems {
             setHelperPage(1)
         }
     }
@@ -149,10 +148,9 @@ public class MovieBannerCollectionView: UICollectionView {
             scrollTimer?.invalidate()
             scrollTimer = nil
             scrollTimer = Timer.scheduledTimer(withTimeInterval: autoScrollTimer,
-                                                       repeats: false) { [weak self] _ in self?.scrollToNextElement() }
+                                               repeats: false) { [weak self] _ in self?.scrollToNextElement() }
         }
 
-        
     }
 
     private func stopScrollTimer() {
@@ -188,7 +186,7 @@ extension MovieBannerCollectionView: UIScrollViewDelegate {
         bannerItems(scrollView)
         startScrollTimer()
     }
-    
+
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                           withVelocity velocity: CGPoint,
                                           targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -199,17 +197,17 @@ extension MovieBannerCollectionView: UIScrollViewDelegate {
 extension MovieBannerCollectionView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView,
                                didSelectItemAt indexPath: IndexPath) {
-        
+
         let realIndex = getRealPageIndex(indexPath)
         movieBannerDataSource?.movieBannerCollectionView?(self,
-                                                    didSelectItemAt: realIndex)
+                                                          didSelectItemAt: realIndex)
     }
 }
 
 extension MovieBannerCollectionView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView,
                                numberOfItemsInSection section: Int) -> Int {
-        
+
         if helperCountOfItems > 0 && !isFirstPageInit {
             currentPageIndex = 0
             isFirstPageInit = true
@@ -225,7 +223,7 @@ extension MovieBannerCollectionView: UICollectionViewDataSource {
 
         let index = getRealPageIndex(indexPath)
         return movieBannerDataSource.movieBannerCollectionView(self,
-                                                         cellForItemAt: index,
-                                                         helperIndexPath: indexPath)
+                                                               cellForItemAt: index,
+                                                               helperIndexPath: indexPath)
     }
 }

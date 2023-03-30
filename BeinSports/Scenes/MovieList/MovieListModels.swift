@@ -8,11 +8,11 @@
 import Foundation
 
 enum MovieListModels {
-    
+
     enum GenresReq {
-        
+
         struct request {
-            var genres : Genres?
+            var genres: Genres?
         }
     }
 }

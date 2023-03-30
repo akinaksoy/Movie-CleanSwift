@@ -8,7 +8,7 @@
 import Foundation
 
 struct RequestModel {
-    let data : Data?
-    let response : HTTPURLResponse?
-    let error : Error?
+    let data: Data?
+    let response: HTTPURLResponse?
+    let error: Error?
 }

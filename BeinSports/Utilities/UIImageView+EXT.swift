@@ -7,14 +7,14 @@
 
 import UIKit
 
-extension UIImageView{
-    
-    static var setImageView : UIImageView {
-       let imageView = UIImageView()
+extension UIImageView {
+
+    static var setImageView: UIImageView {
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 10
         imageView.backgroundColor = .clear
         return imageView
     }
-    
+
 }
