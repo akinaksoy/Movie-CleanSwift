@@ -14,6 +14,8 @@ protocol MovieListPresentationLogic {
 
 final class MovieListPresenter: MovieListPresentationLogic {
 
+    var viewController: MovieListDisplayLogic?
+
     func presentMovies(movie: MovieModel) {
         viewController?.displayMovies(movie: movie)
     }
@@ -21,7 +23,5 @@ final class MovieListPresenter: MovieListPresentationLogic {
     func presentMovieTable(genreList: Genres) {
         viewController?.displayMovieTable(genre: genreList)
     }
-
-    var viewController: MovieListDisplayLogic?
 
 }

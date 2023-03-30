@@ -121,9 +121,7 @@ extension MovieListViewController: MovieListDisplayLogic {
 
 extension MovieListViewController: MoviePlayLogic {
     func playVideo(url: String) {
-        let vc = VideoViewController()
-        vc.configure(mediaURL: url)
-        self.present(vc, animated: true, completion: nil)
+        router?.routeToWatchVideoScene(url: url)
     }
 
 }

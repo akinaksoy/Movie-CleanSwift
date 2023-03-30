@@ -26,8 +26,6 @@ final class MovieListWorker {
     }
 
     func fetchMovies(genreId: Int, completion: @escaping (MovieModel?, RequestError.ErrorTypes?) -> Void) {
-        var movies: [MovieModel] = [MovieModel]()
-
         DispatchQueue.main.async {
 
             guard let url = URL(string: NetworkConstants.generateURLWithFilters(urlType: .discover, language: false, sorted: true, includeAdult: true, includeVideo: true, pageNumber: true, genreId: genreId)) else {return}

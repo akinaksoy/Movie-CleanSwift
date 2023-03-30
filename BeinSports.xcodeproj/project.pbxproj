@@ -87,7 +87,6 @@
 				1F2AEE5C29D43AF000824635 /* Banner */,
 				1F2AEE4B29D40A7C00824635 /* MovieTableViewCell.swift */,
 				1F2AEE4F29D40B3000824635 /* MovieCollectionViewCell.swift */,
-				1F2AEE6629D465F400824635 /* VideoViewController.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -115,6 +114,14 @@
 				1F2AEE6429D4535F00824635 /* VideoManager.swift */,
 			);
 			path = VideoManager;
+			sourceTree = "<group>";
+		};
+		1FA1691929D5377100B8B2DB /* AVViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F2AEE6629D465F400824635 /* VideoViewController.swift */,
+			);
+			path = AVViewController;
 			sourceTree = "<group>";
 		};
 		1FA2F62729D326DC00E743B0 = {
@@ -187,6 +194,7 @@
 		1FA2F64B29D3274500E743B0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1FA1691929D5377100B8B2DB /* AVViewController */,
 				1FA2F66629D332D700E743B0 /* Base */,
 				1FA2F65B29D32DF900E743B0 /* MovieList */,
 			);
