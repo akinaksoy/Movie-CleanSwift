@@ -32,6 +32,14 @@ class MovieTableViewCell: UITableViewCell {
         return collectionView
     }()
 
+    let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = .white
+        pageControl.pageIndicatorTintColor = .gray
+
+        return pageControl
+    }()
+
     lazy var headerView: MovieBannerCollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
         let collectionView = MovieBannerCollectionView(frame: .zero, collectionViewFlowLayout: UICollectionViewFlowLayout())
@@ -39,6 +47,7 @@ class MovieTableViewCell: UITableViewCell {
         collectionView.movieBannerDataSource = self
         collectionView.autoScrollTimer = 5.0
         collectionView.isAutoScrollEnabled = true
+        collectionView.tintColor = .white
         collectionView.backgroundColor = .clear
         collectionView.flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 400)
         collectionView.register(MovieBanner.self, forCellWithReuseIdentifier: MovieBanner.cellIdentifier)
@@ -57,17 +66,26 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     func setDesign(section: Int) {
-        if section != 0 {
+        if section > 0 {
             contentView.addSubview(moviesCollectionView)
 
             moviesCollectionView.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
-        } else {
+        } else if section == 0 {
             contentView.addSubview(headerView)
-
+            self.addSubview(pageControl)
             headerView.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
+            }
+            pageControl.snp.makeConstraints { make in
+                make.bottom.equalToSuperview().offset(-16)
+                make.centerX.equalTo(headerView.snp.centerX)
+            }
+
+            pageControl.sizeToFit()
+            pageControl.subviews.forEach {
+                $0.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }
         }
     }
@@ -79,6 +97,7 @@ class MovieTableViewCell: UITableViewCell {
     func configure(section: Int, movieModel: MovieModel, moviePlayer: MoviePlayLogic) {
         setDesign(section: section)
         self.movies = movieModel.results
+        pageControl.numberOfPages = movies?.count ?? 0
         moviesCollectionView.reloadData()
         self.delegate = moviePlayer
     }
@@ -115,7 +134,9 @@ extension MovieTableViewCell: MovieBannerCollectionViewDataSource {
         cell.fetchImage(imageId: movieId, imageURL: url)
         return cell
     }
-
+    func movieBannerCollectionView(_ movieBannerCollectionView: MovieBannerCollectionView, didDisplayItemAt index: Int) {
+        pageControl.currentPage = index
+    }
     func movieBannerCollectionView(_ movieBannerCollectionView: MovieBannerCollectionView, didSelectItemAt index: Int) {
         delegate?.playVideo(url: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")
     }

@@ -40,6 +40,7 @@ class MovieListViewController: BaseViewController {
         setup()
         configure(title: "Film")
         interactor?.getGenreTypes()
+        tableView.reloadData()
     }
 
     func setup() {
@@ -81,7 +82,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        if movies.count != 0 && movies.count > indexPath.section {
+        if movies.count > 1 && movies.count > indexPath.section {
             cell.configure(section: indexPath.section, movieModel: movies[indexPath.section], moviePlayer: self)
         }
         return cell
