@@ -15,7 +15,7 @@ class APIService {
                        completion: @escaping (RequestModel) -> Void) {
 
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        request.httpMethod = method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let session = URLSession.shared

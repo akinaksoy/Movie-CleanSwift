@@ -17,7 +17,6 @@
 		1F2AEE5929D416B800824635 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEE5829D416B800824635 /* RequestModel.swift */; };
 		1F2AEE5B29D43A7800824635 /* MovieBannerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEE5A29D43A7800824635 /* MovieBannerCollectionView.swift */; };
 		1F2AEE5E29D43B0500824635 /* MovieBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEE5D29D43B0500824635 /* MovieBanner.swift */; };
-		1F2AEE6529D4535F00824635 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEE6429D4535F00824635 /* VideoManager.swift */; };
 		1F2AEE6729D465F400824635 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEE6629D465F400824635 /* VideoViewController.swift */; };
 		1FA2F63429D326DC00E743B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F63329D326DC00E743B0 /* AppDelegate.swift */; };
 		1FA2F63629D326DC00E743B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F63529D326DC00E743B0 /* SceneDelegate.swift */; };
@@ -26,7 +25,6 @@
 		1FA2F64029D326DE00E743B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA2F63E29D326DE00E743B0 /* LaunchScreen.storyboard */; };
 		1FA2F64F29D3283C00E743B0 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F64E29D3283C00E743B0 /* Genres.swift */; };
 		1FA2F65129D3287400E743B0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F65029D3287400E743B0 /* Movie.swift */; };
-		1FA2F65429D3291000E743B0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1FA2F65329D3291000E743B0 /* Alamofire */; };
 		1FA2F65629D3292900E743B0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F65529D3292900E743B0 /* APIService.swift */; };
 		1FA2F65829D3295B00E743B0 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F65729D3295B00E743B0 /* NetworkConstants.swift */; };
 		1FA2F65D29D32E0D00E743B0 /* MovieListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2F65C29D32E0D00E743B0 /* MovieListWorker.swift */; };
@@ -48,7 +46,6 @@
 		1F2AEE5829D416B800824635 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		1F2AEE5A29D43A7800824635 /* MovieBannerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBannerCollectionView.swift; sourceTree = "<group>"; };
 		1F2AEE5D29D43B0500824635 /* MovieBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBanner.swift; sourceTree = "<group>"; };
-		1F2AEE6429D4535F00824635 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		1F2AEE6629D465F400824635 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		1FA2F63029D326DC00E743B0 /* BeinSports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeinSports.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA2F63329D326DC00E743B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FA2F65429D3291000E743B0 /* Alamofire in Frameworks */,
 				1FA2F66E29D33E5600E743B0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,9 +80,8 @@
 		1F2AEE4A29D40A7000824635 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				1FA1691A29D53B6C00B8B2DB /* Table */,
 				1F2AEE5C29D43AF000824635 /* Banner */,
-				1F2AEE4B29D40A7C00824635 /* MovieTableViewCell.swift */,
-				1F2AEE4F29D40B3000824635 /* MovieCollectionViewCell.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -108,20 +103,21 @@
 			path = Banner;
 			sourceTree = "<group>";
 		};
-		1F2AEE6329D4535500824635 /* VideoManager */ = {
-			isa = PBXGroup;
-			children = (
-				1F2AEE6429D4535F00824635 /* VideoManager.swift */,
-			);
-			path = VideoManager;
-			sourceTree = "<group>";
-		};
 		1FA1691929D5377100B8B2DB /* AVViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1F2AEE6629D465F400824635 /* VideoViewController.swift */,
 			);
 			path = AVViewController;
+			sourceTree = "<group>";
+		};
+		1FA1691A29D53B6C00B8B2DB /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				1F2AEE4B29D40A7C00824635 /* MovieTableViewCell.swift */,
+				1F2AEE4F29D40B3000824635 /* MovieCollectionViewCell.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 		1FA2F62729D326DC00E743B0 = {
@@ -166,7 +162,6 @@
 		1FA2F64829D3273300E743B0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1F2AEE6329D4535500824635 /* VideoManager */,
 				1F2AEE5529D4133C00824635 /* CacheManager */,
 				1FA2F65929D32D4000E743B0 /* Service */,
 			);
@@ -269,7 +264,6 @@
 			);
 			name = BeinSports;
 			packageProductDependencies = (
-				1FA2F65329D3291000E743B0 /* Alamofire */,
 				1FA2F66D29D33E5600E743B0 /* SnapKit */,
 			);
 			productName = BeinSports;
@@ -301,7 +295,6 @@
 			);
 			mainGroup = 1FA2F62729D326DC00E743B0;
 			packageReferences = (
-				1FA2F65229D3291000E743B0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				1FA2F66C29D33E5600E743B0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 1FA2F63129D326DC00E743B0 /* Products */;
@@ -373,7 +366,6 @@
 				1FA2F65129D3287400E743B0 /* Movie.swift in Sources */,
 				1F2AEE5029D40B3000824635 /* MovieCollectionViewCell.swift in Sources */,
 				1F2AEE5429D40BEE00824635 /* Constants.swift in Sources */,
-				1F2AEE6529D4535F00824635 /* VideoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,14 +575,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1FA2F65229D3291000E743B0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		1FA2F66C29D33E5600E743B0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -602,11 +586,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1FA2F65329D3291000E743B0 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1FA2F65229D3291000E743B0 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
 		1FA2F66D29D33E5600E743B0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1FA2F66C29D33E5600E743B0 /* XCRemoteSwiftPackageReference "SnapKit" */;

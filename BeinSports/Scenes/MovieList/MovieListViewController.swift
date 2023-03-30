@@ -95,7 +95,15 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
-
+        let headerImage = UIImage(systemName: "ellipsis.circle.fill")
+        let headerImageView = UIImageView(image: headerImage)
+        headerImageView.tintColor = .purple
+        header.addSubview(headerImageView)
+        headerImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.width.height.equalTo(24)
+        }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
