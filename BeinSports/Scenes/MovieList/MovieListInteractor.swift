@@ -21,7 +21,7 @@ final class MovieListInteractor {
             if let response = response {
                 self.presenter?.presentMovieTable(genreList: response)
             } else if let error = error {
-
+                self.presenter?.presentError(error: error.rawValue)
             }
         }
     }
@@ -33,7 +33,7 @@ final class MovieListInteractor {
                 if let movie = movie {
                     self.presenter?.presentMovies(movie: movie)
                 } else if let error = error {
-
+                    self.presenter?.presentError(error: error.rawValue)
                 }
             }
         }

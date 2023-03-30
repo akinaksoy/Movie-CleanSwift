@@ -9,6 +9,9 @@ import Foundation
 
 struct Constants {
 
+    static let ok = "Ok"
+    static let connectionProblem = "Connection Problem"
+
     enum fontTypes {
         case italic
         case bold

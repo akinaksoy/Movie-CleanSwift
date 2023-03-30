@@ -11,6 +11,7 @@ import AVKit
 protocol MovieListDisplayLogic {
     func displayMovieTable(genre: Genres)
     func displayMovies(movie: MovieModel)
+    func displayError(errorMessage: String)
 }
 
 protocol MoviePlayLogic {
@@ -125,6 +126,12 @@ extension MovieListViewController: MovieListDisplayLogic {
     func displayMovieTable(genre: Genres) {
         genreCategories = genre
         interactor?.getMovies(request: MovieListModels.GenresReq.request(genres: self.genreCategories))
+    }
+
+    func displayError(errorMessage: String) {
+        let alert = UIAlertController(title: Constants.connectionProblem, message: errorMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: Constants.ok, style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

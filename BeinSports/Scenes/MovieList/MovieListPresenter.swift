@@ -10,6 +10,7 @@ import Foundation
 protocol MovieListPresentationLogic {
     func presentMovieTable(genreList: Genres)
     func presentMovies(movie: MovieModel)
+    func presentError(error: String)
 }
 
 final class MovieListPresenter: MovieListPresentationLogic {
@@ -24,4 +25,7 @@ final class MovieListPresenter: MovieListPresentationLogic {
         viewController?.displayMovieTable(genre: genreList)
     }
 
+    func presentError(error: String) {
+        viewController?.displayError(errorMessage: error)
+    }
 }
