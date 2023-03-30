@@ -15,7 +15,7 @@ protocol MovieListDisplayLogic {
 }
 
 protocol MoviePlayLogic {
-    func playVideo(url: String)
+    func playVideo(url: String, titleName: String)
 }
 
 class MovieListViewController: BaseViewController {
@@ -136,8 +136,8 @@ extension MovieListViewController: MovieListDisplayLogic {
 }
 
 extension MovieListViewController: MoviePlayLogic {
-    func playVideo(url: String) {
-        router?.routeToWatchVideoScene(url: url)
+    func playVideo(url: String, titleName: String) {
+        router?.routeToWatchVideoScene(url: url, titleName: titleName)
     }
 
 }
